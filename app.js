@@ -24,9 +24,9 @@ document.getElementById('calculate-btn').addEventListener('click',function(){
     // set balance 
     balance.innerText = incomeValue - totalExpenses
 
-    foodInput.value =''
-    rentInput.value =''
-    clothesInput.value =''
+    // foodInput.value =''
+    // rentInput.value =''
+    // clothesInput.value =''
 })
 
 // saving part 
@@ -47,20 +47,19 @@ document.getElementById('save-btn').addEventListener('click',function(){
 
     // saving amount 
     const saving = (incomeValue * saveValue) / 100
-  
 
- if(saving >= balanceValue){
-     alert("You can't save")
- }
- if(saveValue != 'number' || saveValue < 0){
-alert('Insert a valid number ⚠')
- }else{
-    //  saving amount set 
+    if((saveValue == 'number' || saveValue >= 0) && saving < balanceValue){
+            //  saving amount set 
     savingAmount.innerText = saving
 
     // remaining balance set 
     remaining.innerText = balanceValue - saving
- }
+    }else if(saving > balanceValue){
+        alert("You don't have enough balance to save this amount😔 ")
+    }
+    else{
+        alert('❌ Please insert a valid number')
+    }
 
 saveInput.value =''
 })
