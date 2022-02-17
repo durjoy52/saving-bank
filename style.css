@@ -6,8 +6,9 @@
 .icon {
   color: darkorchid;
 }
-
-#message {
+#message1,
+#message2 {
+  background: #d6789c;
   display: none;
 }
 @media screen and (max-width: 350px) {

@@ -20,27 +20,32 @@ document.getElementById('calculate-btn').addEventListener('click',function(){
     const totalExpenses = parseInt(foodValue) + parseInt(rentValue) + parseInt(clothesValue)
     const balanceAmount = incomeValue - totalExpenses
 
-    if(isNaN(incomeValue) || isNaN(foodValue) 
+    if(isNaN(totalExpenses) || isNaN(balanceAmount) 
+    || isNaN(incomeValue) || isNaN(foodValue) 
     || isNaN(rentValue) || isNaN(clothesValue) 
-    || incomeValue < 0 || foodValue < 0 
-    || rentValue < 0 || clothesValue < 0 ){
-        alert('Insert a valid number')
+    || (incomeValue < 0 || foodValue < 0 )
+    || (rentValue < 0 || clothesValue < 0 )){
+        alert('❌ Insert a valid number')
+        document.getElementById('message1').style.display ='none'
+        balance.innerText = 0
+        expensesBalance.innerText = 0
     }else if(totalExpenses > incomeValue){
-      alert('Your expenses amount is higher than your income')
+     document.getElementById('message1').style.display ='block'
+     expensesBalance.innerText = totalExpenses
       
     }else{
+        document.getElementById('message1').style.display ='none'
         // set expenses 
         expensesBalance.innerText = totalExpenses
         // set balance 
         
         balance.innerText = balanceAmount
     }
-                    
-    
-    foodInput.value =''
-    rentInput.value =''
-    clothesInput.value =''
+    foodInput.value =''                
+    rentInput.value =''                
+    clothesInput.value =''                
 })
+
 
 
 // saving part 
@@ -68,12 +73,15 @@ document.getElementById('save-btn').addEventListener('click',function(){
 
     // remaining balance set 
     remaining.innerText = (balanceValue - saving).toFixed(2)
+
+    document.getElementById('message2').style.display ='none'
     }else if(saving > balanceValue){
-        alert("You don't have enough balance to save this amount😔 ")
+        document.getElementById('message2').style.display ='block'
     }
     else{
         alert('❌ Please insert a valid number')
     }
+
 
 saveInput.value =''
 })
