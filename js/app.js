@@ -2,10 +2,10 @@
 
 //  calculating part 
 document.getElementById('calculate-btn').addEventListener('click',function(){
-    const incomeValue = inputValueReduce('income')
-    const foodValue = inputValueReduce('food')
-    const rentValue =inputValueReduce('rent')
-    const clothesValue =inputValueReduce('clothes')
+    const incomeValue = valueOfInput('income')
+    const foodValue = valueOfInput('food')
+    const rentValue =valueOfInput('rent')
+    const clothesValue =valueOfInput('clothes')
     
     const expensesBalance =document.getElementById('total-expenses')
     const balance =document.getElementById('balance')
@@ -23,7 +23,7 @@ document.getElementById('calculate-btn').addEventListener('click',function(){
         document.getElementById('message1').style.display ='none'
         balance.innerText = 0
         expensesBalance.innerText = 0
-
+        
     }else if(totalExpenses > incomeValue){
      document.getElementById('message1').style.display ='block'
      expensesBalance.innerText = totalExpenses    
@@ -34,30 +34,36 @@ document.getElementById('calculate-btn').addEventListener('click',function(){
         // set balance 
         balance.innerText = balanceAmount
     }
-    foodInput.value =''                
-    rentInput.value =''                
-    clothesInput.value =''                
-})
 
-function inputValueReduce(idName){
-    const incomeInput = document.getElementById(idName + '-input')
-    return incomeInput.value
+    cleanInput('food')
+    cleanInput('rent')
+    cleanInput('clothes')                                      
+})
+//  input value generator 
+function valueOfInput(idName){
+    const inputId = document.getElementById(idName + '-input')
+    return inputId.value
 }
 
+// remove input value 
+function cleanInput(idName){
+    document.getElementById(idName + '-input').value =''
+}
 
 // saving part 
 document.getElementById('save-btn').addEventListener('click',function(){
-    const saveInput =document.getElementById('save-input')
+    const income =document.getElementById('income-input')
+
     const balance =document.getElementById('balance')
 
     const savingAmount =document.getElementById('saving-amount')
     const remaining = document.getElementById('remaining-balance')
 
-    const saveValue = saveInput.value
+    let saveValue = valueOfInput('save')
 
-    const incomeValue = inputValueReduce('income')
+    const incomeValue = income.value
 
-    const balanceValue = balance.innerText
+    const balanceValue =balance.innerText
 
     // saving amount 
     const saving = (incomeValue * saveValue) / 100
@@ -75,8 +81,9 @@ document.getElementById('save-btn').addEventListener('click',function(){
     }
     else{
         alert('❌ Please insert a valid number')
+        document.getElementById('message2').style.display ='none'
     }
 
 
-saveInput.value =''
+cleanInput('save')
 })
