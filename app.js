@@ -1,33 +1,47 @@
+
+
 //  calculating part 
 document.getElementById('calculate-btn').addEventListener('click',function(){
     const incomeInput = document.getElementById('income-input')
-    const incomeValue =parseFloat(incomeInput.value)
+    const incomeValue =incomeInput.value
 
     const foodInput =document.getElementById('food-input')
-    const foodValue = parseFloat(foodInput.value)
+    const foodValue = foodInput.value
 
     const rentInput =document.getElementById('rent-input')
-    const rentValue =parseFloat(rentInput.value)
+    const rentValue =rentInput.value
 
     const clothesInput = document.getElementById('clothes-input')
-    const clothesValue =parseFloat(clothesInput.value)
-
-    // calculate total expenses 
-    const totalExpenses = foodValue + rentValue + clothesValue
-
+    const clothesValue =clothesInput.value
+    
     const expensesBalance =document.getElementById('total-expenses')
-
     const balance =document.getElementById('balance')
+    // calculate total expenses 
+    const totalExpenses = parseInt(foodValue) + parseInt(rentValue) + parseInt(clothesValue)
+    const balanceAmount = incomeValue - totalExpenses
 
-    // set expenses 
-    expensesBalance.innerText = totalExpenses
-    // set balance 
-    balance.innerText = incomeValue - totalExpenses
-
-    // foodInput.value =''
-    // rentInput.value =''
-    // clothesInput.value =''
+    if(isNaN(incomeValue) || isNaN(foodValue) 
+    || isNaN(rentValue) || isNaN(clothesValue) 
+    || incomeValue < 0 || foodValue < 0 
+    || rentValue < 0 || clothesValue < 0 ){
+        alert('Insert a valid number')
+    }else if(totalExpenses > incomeValue){
+      alert('Your expenses amount is higher than your income')
+      
+    }else{
+        // set expenses 
+        expensesBalance.innerText = totalExpenses
+        // set balance 
+        
+        balance.innerText = balanceAmount
+    }
+                    
+    
+    foodInput.value =''
+    rentInput.value =''
+    clothesInput.value =''
 })
+
 
 // saving part 
 document.getElementById('save-btn').addEventListener('click',function(){
@@ -50,10 +64,10 @@ document.getElementById('save-btn').addEventListener('click',function(){
 
     if((saveValue == 'number' || saveValue >= 0) && saving < balanceValue){
             //  saving amount set 
-    savingAmount.innerText = saving
+    savingAmount.innerText = (saving).toFixed(2)
 
     // remaining balance set 
-    remaining.innerText = balanceValue - saving
+    remaining.innerText = (balanceValue - saving).toFixed(2)
     }else if(saving > balanceValue){
         alert("You don't have enough balance to save this amount😔 ")
     }

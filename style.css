@@ -1,12 +1,17 @@
+/* calculate site bakcground  */
 .bg-color {
   background-color: #f7f7f7;
 }
+/* doller icon  */
+.icon {
+  color: darkorchid;
+}
 
+#message {
+  display: none;
+}
 @media screen and (max-width: 350px) {
   .customize label {
     font-size: 12px;
   }
-}
-.icon {
-  color: darkorchid;
 }

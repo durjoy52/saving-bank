@@ -24,46 +24,52 @@
         </h1>
       <!-- heading end  -->
       
-      <div class="row  d-flex align-items-center justify-content-around  gap-5 ">
+      <div class="row    gap-5 ">
           <div class="col-12 col-lg-7 ">
-              <div class="border rounded">
+              <div class="border rounded h-100 banner">
               <!-- banner  -->
-            <img class="img-fluid" src="images/account-manage.jpg" alt="" />
+            <img class="w-100 h-100" src="images/account-manage.jpg" alt="" />
           </div>
         </div>
-        <div class="col-12 col-lg-4 bg-color sizing">
+        <div class="col-12 col-lg-4 bg-color ">
             <!-- calculation site  -->
             <div class="income-site">
+              <!-- income section  -->
                 <h2 class="fs-4 text-center py-2">Income</h2>
                 <div class="mb-3 row justify-content-center customize">
                     <label for="income-input" class="col-2 col-form-label text-end">Income</label>
                     <div class="col-10">
-                      <input type="text" class="form-control" id="income-input">
+                      <input type="text" class="form-control expenses-item" id="income-input">
                     </div>
                   </div>
             </div>
             <div class="expenses-site customize">
+              <!-- expenses section  -->
                 <h2 class="fs-4 text-center py-2">Expenses</h2>
                 <div class="mb-3 row justify-content-center">
+                  <!-- food value  -->
                     <label for="food-input" class="col-2 col-form-label text-end">Food</label>
                     <div class="col-10">
-                      <input type="text" class="form-control" id="food-input">
+                      <input type="text" class="form-control expenses-item" id="food-input">
                     </div>
                   </div>
                 <div class="mb-3 row justify-content-center">
+                  <!-- rent value  -->
                     <label for="rent-input" class="col-2 col-form-label text-end">Rent</label>
                     <div class="col-10">
-                      <input type="text" class="form-control" id="rent-input">
+                      <input type="text" class="form-control expenses-item" id="rent-input">
                     </div>
                   </div>
                 <div class="mb-3 row justify-content-center">
+                  <!-- clothes value  -->
                     <label for="clothes-input" class="col-2 col-form-label text-end">Clothes</label>
                     <div class="col-10">
-                      <input type="text" class="form-control" id="clothes-input">
+                      <input type="text" class="form-control expenses-item" id="clothes-input">
                     </div>
                   </div>
             </div>
-            <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center message">
+              <!-- calculate button -->
                 <button id="calculate-btn" class="btn btn-primary border rounded px-5 py-2">Calculate</button>
             </div>
             <div class="text-center mt-3">
@@ -72,6 +78,7 @@
             <div class="text-center">
                 <h3 class="fs-4">Balance: <span id="balance">0</span></h3>
             </div>
+            <!-- saving section  -->
             <div class="mb-3 row justify-content-center mt-4">
                 <label for="save" class="col-2 col-form-label text-end">Save</label>
                 <div class="col-4">
